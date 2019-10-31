@@ -132,79 +132,33 @@ return [
         // ],
         ['header' => 'main_navigation'],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
             'text'        => 'Dashboard',
-            'url'         => 'admin/pages',
+            'url'         => '#',
             'icon'        => 'far fa-file',
             // 'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Funcionários',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Clientes',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
+            'text' => 'Reservas',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
+            'text' => 'Quartos',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-users',
         ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
-        ],
+       
     ],
 
     /*
