@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('adminlte::passwords.email', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/www/sistema-hotel.lc/resources/views/auth/passwords/email.blade.php ENDPATH**/ ?>

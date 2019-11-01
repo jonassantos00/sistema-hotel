@@ -106,7 +106,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dashboard',
 
     'logout_url' => 'logout',
 
@@ -133,14 +133,14 @@ return [
         ['header' => 'main_navigation'],
         [
             'text'        => 'Dashboard',
-            'url'         => '#',
+            'url'         => 'dashboard',
             'icon'        => 'far fa-file',
             // 'label'       => 4,
             'label_color' => 'success',
         ],
         [
             'text' => 'Funcionários',
-            'url'  => '#',
+            'url'  => 'funcionarios',
             'icon' => 'fas fa-fw fa-users',
         ],
         [

@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('adminlte::register', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/www/sistema-hotel.lc/resources/views/auth/register.blade.php ENDPATH**/ ?>
