@@ -18,6 +18,10 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => ['auth']], function(){
     Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
     Route::get('funcionarios', 'FuncionariosController@index')->name('funcionarios');
+    Route::post('funcionarios/cadastrar', 'FuncionariosController@cadastrar')->name('funcionarios.cadastrar');
+    Route::get('funcionarios/editar/{idFuncionario}', 'FuncionariosController@editar')->name('funcionarios.editar');
+    Route::post('funcionarios/editar/{idFuncionario}/atualizar', 'FuncionariosController@atualizar')->name('funcionarios.atualizar');
+    Route::post('funcionarios/excluir', 'FuncionariosController@excluir')->name('funcionarios.excluir');
 
 });
 

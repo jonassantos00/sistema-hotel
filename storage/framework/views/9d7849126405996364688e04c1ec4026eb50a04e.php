@@ -37,6 +37,7 @@
 <script src="<?php echo e(asset('vendor/jquery/dist/jquery.min.js')); ?>"></script>
 <script src="<?php echo e(asset('vendor/jquery/dist/jquery.slimscroll.min.js')); ?>"></script>
 <script src="<?php echo e(asset('vendor/bootstrap/dist/js/bootstrap.min.js')); ?>"></script>
+<script src="<?php echo e(asset('vendor/hotel/modal.js')); ?>"></script>
 
 <?php echo $__env->make('adminlte::plugins', ['type' => 'js'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
