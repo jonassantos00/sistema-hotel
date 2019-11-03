@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Funcionários')
+@section('title', 'Funcionários | Alteração de dados')
 
 @section('content_header')
 @stop
@@ -12,7 +12,7 @@
     <div class="col-md-12">
           <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Cadastro de Funcionários</h3>
+                  <h3 class="box-title">Editar Funcionário</h3>
                 </div>
                 <form action="{{Route('funcionarios.atualizar', $funcionario->id)}}" method="POST" >
                   {{ csrf_field() }}

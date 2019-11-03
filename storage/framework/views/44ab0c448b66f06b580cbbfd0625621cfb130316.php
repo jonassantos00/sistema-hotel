@@ -68,7 +68,7 @@
               </div>
     </div>
     <div class="col-md-12">
-        <div class="box box-primary">
+        <div class="box box-primary table-responsive">
           <div class="box-header with-border">
             <h3 class="box-title">Listagem de Funcionários</h3>
           </div>
@@ -80,7 +80,7 @@
                   <th>Nome</th>
                   <th>E-mail</th>
                   <th>Status</th>
-                  <th style="width: 100px">Opções</th>
+                  <th style="width: 100px; min-width:100px;">Opções</th>
                 </tr>
               </thead>
               <tbody>
