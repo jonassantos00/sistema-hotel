@@ -34,6 +34,7 @@
     30 => 'App\\Providers\\AuthServiceProvider',
     31 => 'App\\Providers\\EventServiceProvider',
     32 => 'App\\Providers\\RouteServiceProvider',
+    33 => 'laravel\\pagseguro\\Platform\\Laravel5\\ServiceProvider',
   ),
   'eager' => 
   array (
@@ -58,6 +59,7 @@
     18 => 'App\\Providers\\AuthServiceProvider',
     19 => 'App\\Providers\\EventServiceProvider',
     20 => 'App\\Providers\\RouteServiceProvider',
+    21 => 'laravel\\pagseguro\\Platform\\Laravel5\\ServiceProvider',
   ),
   'deferred' => 
   array (
