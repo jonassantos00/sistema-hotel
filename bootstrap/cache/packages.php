@@ -31,6 +31,17 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
+  'michael/laravelpagseguro' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'laravel\\pagseguro\\Platform\\Laravel5\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'PagSeguro' => 'laravel\\pagseguro\\Platform\\Laravel5\\PagSeguro',
+    ),
+  ),
   'nesbot/carbon' => 
   array (
     'providers' => 

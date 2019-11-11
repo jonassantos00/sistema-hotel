@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'laravel\\pagseguro\\' => array($vendorDir . '/michael/laravelpagseguro/src'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
