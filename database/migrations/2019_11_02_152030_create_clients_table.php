@@ -13,14 +13,15 @@ class CreateClientesTable extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome', 45);
-            $table->string('cpf', 11);
-            $table->string('rg', 11);
-            $table->date('data_nascimento');
-            $table->enum('status', ['Ativo', 'Inativo']);
+            $table->string('name', 150);
+            $table->string('num_cpf', 14)->unique('Número do CPF do cliente');
+            $table->string('num_rg', 11)->unique()->comment('Número do RG do cliente');
+            $table->date('dt_birth')->comment('Data de nascimento do cliente');
+            $table->enum('status', ['Active', 'Inactive']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +32,6 @@ class CreateClientesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('clients');
     }
 }

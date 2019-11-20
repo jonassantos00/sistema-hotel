@@ -1,5 +1,6 @@
 <?php
 
+	use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +11,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+	Route::get(		'cliente/importar', 'ClientController@import');
 // Rotas Login
 Route::get('/','Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
@@ -23,5 +25,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('funcionarios/editar/{idFuncionario}/atualizar', 'FuncionariosController@atualizar')->name('funcionarios.atualizar');
     Route::post('funcionarios/excluir', 'FuncionariosController@excluir')->name('funcionarios.excluir');
 
+
 });
+
 
