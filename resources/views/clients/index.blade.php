@@ -10,7 +10,7 @@
     <div class="row margin-bottom">
         <div class="col-xs-12">
             <div class="btn-group">
-                <a href="{{ url('clientes/importar') }}" class="btn btn-primary">Importar clientes</a>
+                <a href="{{ route('clients.import') }}" class="btn btn-primary">Importar clientes</a>
             </div>
         </div>
     </div>
@@ -24,11 +24,13 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th style="width: 10px">Matrícula</th>
+                            <th style="width: 10px">ID</th>
+                            <th style="width: 20px">ID Externo</th>
                             <th>Nome</th>
                             <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Endereço</th>
                             <th>Status</th>
-                            <th>Cargo</th>
                             <th style="width: 100px; min-width:100px;">Opções</th>
                         </tr>
                         </thead>
@@ -36,18 +38,20 @@
                         @foreach ($clients as $client)
                             <tr>
                                 <td style="text-align:center;">{{$client->id}}</td>
-                                <td>{{$client->nome}}</td>
+                                <td style="text-align:center;">{{$client->id_external}}</td>
+                                <td>{{$client->name}}</td>
                                 <td>{{$client->email}}</td>
+                                <td>{{$client->phone}}</td>
+                                <td>{{$client->address}}</td>
                                 <td>{{$client->status}}</td>
-                                <td>{{$client->office}}</td>
                                 <td>
-                                    <a href="{{Route('funcionarios.editar', $client->id)}}"
-                                       class="btn btn-info btn-xs"><i class="fa fa-edit"></i></a>
-                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal"
-                                            data-target="#modal" data-nome="{{$client->nome}}"
-                                            data-identificador="{{$client->id}}"
-                                            data-acao="Deseja excluir o Funcionário "><i class="fa fa-trash"></i>
-                                    </button>
+                                    <form action="{{ route('clients.destroy', ['id' => $client->id]) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-xs btn-danger">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
@@ -55,32 +59,5 @@
                     </table>
                 </div>
             </div>
-            {{-- Modal Excluir --}}
-            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="{{Route('funcionarios.excluir')}}" method="POST">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="idFuncionario" class="identificador">
-                                <div class="form-group">
-                                    <h5 class="nome"></h5>
-                                </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                            <button type="submit" class="btn btn-danger">Sim</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            {{-- Modal Excluir --}}
         </div>
 @stop

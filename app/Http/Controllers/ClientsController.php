@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Imports\ClientsImport;
 use App\Models\Client;
-use App\Notifications\ImportedClients;
-use App\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -31,47 +29,19 @@ class ClientsController extends Controller
 	}
 	
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param \App\Models\Client $client
-	 * @return \Illuminate\Http\Response
-	 */
-	public function show(Client $client)
-	{
-		//
-	}
-	
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param \App\Models\Client $client
-	 * @return \Illuminate\Http\Response
-	 */
-	public function edit(Client $client)
-	{
-		//
-	}
-	
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param \Illuminate\Http\Request $request
-	 * @param \App\Models\Client $client
-	 * @return \Illuminate\Http\Response
-	 */
-	public function update(Request $request, Client $client)
-	{
-		//
-	}
-	
-	/**
 	 * Remove the specified resource from storage.
 	 *
 	 * @param \App\Models\Client $client
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy(Client $client)
+	public function destroy(Request $request)
 	{
-		//
+		try {
+			$client = Client::findOrFail(intval($request->get('id')));
+			$client->delete();
+			return redirect()->back()->with('success', 'Cliente deletado com sucesso!');
+		} catch (\Exception $exception) {
+			return redirect()->back()->withErrors("Erro ao tentar excluir um cliente: {$exception->getMessage()}");
+		}
 	}
 }

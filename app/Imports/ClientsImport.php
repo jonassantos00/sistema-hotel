@@ -30,14 +30,15 @@ class ClientsImport implements ToCollection, WithValidation, WithEvents
 				continue;
 			}
 			
-			$client = Client::byIdExternal($row[0])->first() ?? new Client();
+			$client = Client::byIdExternal($row[0])->withTrashed()->first() ?? new Client();
+			$client->restore();
 			$client->fill([
 				'id_external' => $row[0],
 				'name' => $row[1],
 				'email' => $row[2],
 				'phone' => $row[3],
 				'address' => $row[4],
-				'status' => $row[7]
+				'status' => $row[5]
 			]);
 			$client->save();
 		}

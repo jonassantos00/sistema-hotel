@@ -19,10 +19,11 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::post('excluir', 'EmployeesController@destroy')->name('funcionarios.excluir');
 	});
 	
-	Route::get('clientes/importar', 'ClientsController@import');
-	Route::resource('clientes', 'ClientsController')
-		->except(['create', 'store'])
-		->only(['index']);
+	Route::prefix('clientes')->group(function () {
+		Route::get('/', 'ClientsController@index')->name('clients');
+		Route::get('importar', 'ClientsController@import')->name('clients.import');
+		Route::delete('deletar/{id}', 'ClientsController@destroy')->name('clients.destroy');
+	});
 	
 });
 
