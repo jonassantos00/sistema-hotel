@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Imports\ClientsImport;
 use App\Models\Client;
+use App\Notifications\ImportedClients;
+use App\User;
 use Illuminate\Http\Request;
-use League\Flysystem\FilesystemNotFoundException;
-use Maatwebsite\Excel\Exceptions\NoFilenameGivenException;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ClientsController extends Controller
