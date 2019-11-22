@@ -1,31 +1,23 @@
 <?php
 
 	use Illuminate\Support\Facades\Route;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-	Route::get(		'cliente/importar', 'ClientController@import');
+
+	Route::get('cliente/importar', 'ClientController@import');
 // Rotas Login
-Route::get('/','Auth\LoginController@showLoginForm')->name('login');
-Route::post('/login', 'Auth\LoginController@login');
-Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+	Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+	Route::post('/login', 'Auth\LoginController@login');
+	Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 // Rotas autenticadas
-Route::group(['middleware' => ['auth']], function(){
-    Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
-    Route::get('funcionarios', 'FuncionariosController@index')->name('funcionarios');
-    Route::post('funcionarios/cadastrar', 'FuncionariosController@cadastrar')->name('funcionarios.cadastrar');
-    Route::get('funcionarios/editar/{idFuncionario}', 'FuncionariosController@editar')->name('funcionarios.editar');
-    Route::post('funcionarios/editar/{idFuncionario}/atualizar', 'FuncionariosController@atualizar')->name('funcionarios.atualizar');
-    Route::post('funcionarios/excluir', 'FuncionariosController@excluir')->name('funcionarios.excluir');
+	Route::group(['middleware' => ['auth']], function () {
+		Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
 
-
-});
+		Route::prefix('funcionarios')->group(function (){
+			Route::get('/', 'EmployeesController@index')->name('funcionarios');
+			Route::post('cadastrar', 'EmployeesController@add')->name('funcionarios.cadastrar');
+			Route::get('editar/{id}', 'EmployeesController@edit')->name('funcionarios.editar');
+			Route::post('edit/{id}/update', 'EmployeesController@update')->name('funcionarios.atualizar');
+			Route::post('excluir', 'EmployeesController@destroy')->name('funcionarios.excluir');
+		});
+	});
 
 

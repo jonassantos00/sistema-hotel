@@ -1,22 +1,23 @@
 <?php
 
 	use Illuminate\Database\Seeder;
-	use App\User;
-
+	use App\Models\Employee;
 
 	class EmployeesTableSeeder extends Seeder
 	{
-		/**
-		 * Run the database seeds.
-		 *
-		 * @return void
-		 */
 		public function run()
 		{
-			User::insert([
-				['nome'   => 'Administrador', 'data_nascimento' => '2019-11-02', 'cpf' => '09912399865',
-				 'cargo'  => 'Gerente', 'email' => 'administrador@sistema.hotel', 'password' => bcrypt('admin@2019!'),
-				 'status' => 'Ativo'
+			factory(Employee::class, 25)->create();
+
+			Employee::insert([
+				[
+					'name'   => 'Administrador',
+					'dt_birth' => '2019-11-02',
+					'cpf' => '09912399865',
+				 	'office'  => Employee::MANAGER,
+					'email' => 'administrador@sistema.hotel',
+					'password' => bcrypt('admin@2019!'),
+				 	'status' => Employee::ACTIVE
 				]
 			]);
 		}
