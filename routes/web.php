@@ -22,6 +22,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('funcionarios/editar/{idFuncionario}', 'FuncionariosController@editar')->name('funcionarios.editar');
     Route::post('funcionarios/editar/{idFuncionario}/atualizar', 'FuncionariosController@atualizar')->name('funcionarios.atualizar');
     Route::post('funcionarios/excluir', 'FuncionariosController@excluir')->name('funcionarios.excluir');
+    Route::get('quartos', 'QuartosController@index')->name('quartos');
+    Route::post('quartos/cadastrar', 'QuartosController@cadastrar')->name('quartos.cadastar');
+    Route::post('quartos/excluir', 'QuartosController@excluir')->name('quartos.excluir');
+    Route::get('quartos/editar/{idQuarto}', 'QuartosController@editar')->name('quartos.editar');
+    Route::post('quartos/editar/{idQuarto}/atualizar', 'QuartosController@atualizar')->name('quartos.atualizar');
 
 });
 

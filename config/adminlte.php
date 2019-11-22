@@ -155,7 +155,7 @@ return [
         ],
         [
             'text' => 'Quartos',
-            'url'  => '#',
+            'url'  => 'quartos',
             'icon' => 'fas fa-fw fa-users',
         ],
        

@@ -42,7 +42,7 @@ class FuncionariosController extends Controller
             // Retornar erro
             return redirect()
                             ->back()
-                            ->with('error', 'Erro ao cadastrar Funcionário!'.$e);
+                            ->with('error', 'Erro ao cadastrar Funcionário!');
         }  
     }
 

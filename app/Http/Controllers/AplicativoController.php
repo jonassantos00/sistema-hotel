@@ -8,7 +8,8 @@ class AplicativoController extends Controller
 {
     
     public function recebeDados(Request $request){
-        dd($request->all());
+        // return $request->all();
+        return "Dados Recebidos: ".dd($request->all());
     }
 
 }
