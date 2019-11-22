@@ -1,32 +1,30 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Support\Facades\Route;
+
+
 // Rotas Login
-Route::get('/','Auth\LoginController@showLoginForm')->name('login');
+Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-// Rotas autenticadas
-Route::group(['middleware' => ['auth']], function(){
-    Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
-    Route::get('funcionarios', 'FuncionariosController@index')->name('funcionarios');
-    Route::post('funcionarios/cadastrar', 'FuncionariosController@cadastrar')->name('funcionarios.cadastrar');
-    Route::get('funcionarios/editar/{idFuncionario}', 'FuncionariosController@editar')->name('funcionarios.editar');
-    Route::post('funcionarios/editar/{idFuncionario}/atualizar', 'FuncionariosController@atualizar')->name('funcionarios.atualizar');
-    Route::post('funcionarios/excluir', 'FuncionariosController@excluir')->name('funcionarios.excluir');
-    Route::get('quartos', 'QuartosController@index')->name('quartos');
-    Route::post('quartos/cadastrar', 'QuartosController@cadastrar')->name('quartos.cadastar');
-    Route::post('quartos/excluir', 'QuartosController@excluir')->name('quartos.excluir');
-    Route::get('quartos/editar/{idQuarto}', 'QuartosController@editar')->name('quartos.editar');
-    Route::post('quartos/editar/{idQuarto}/atualizar', 'QuartosController@atualizar')->name('quartos.atualizar');
 
+// Rotas autenticadas
+Route::group(['middleware' => ['auth']], function () {
+	Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
+	Route::prefix('funcionarios')->group(function () {
+		Route::get('/', 'EmployeesController@index')->name('funcionarios');
+		Route::post('cadastrar', 'EmployeesController@add')->name('funcionarios.cadastrar');
+		Route::get('editar/{id}', 'EmployeesController@edit')->name('funcionarios.editar');
+		Route::post('edit/{id}/update', 'EmployeesController@update')->name('funcionarios.atualizar');
+		Route::post('excluir', 'EmployeesController@destroy')->name('funcionarios.excluir');
+	});
+	
+	Route::prefix('clientes')->group(function () {
+		Route::get('/', 'ClientsController@index')->name('clients');
+		Route::get('importar', 'ClientsController@import')->name('clients.import');
+		Route::delete('deletar/{id}', 'ClientsController@destroy')->name('clients.destroy');
+	});
+	
 });
+
 
