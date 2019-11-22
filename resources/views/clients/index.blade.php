@@ -7,8 +7,15 @@
 
 @section('content')
     @include('includes.alerts')
+    <div class="row margin-bottom">
+        <div class="col-xs-12">
+            <div class="btn-group">
+                <a href="{{ url('clientes/importar') }}" class="btn btn-primary">Importar clientes</a>
+            </div>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-xs-12">
             <div class="box box-primary table-responsive">
                 <div class="box-header with-border">
                     <h3 class="box-title">Listagem de Clientes</h3>
