@@ -26,9 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
 	});
 	
 	Route::prefix('reservas')->group(function () {
-		Route::get('reserva', 'ReservationController@reserve')->name('reservations.reserve');
-		Route::post('reservar', 'ReservationController@book')->name('reservations.book');
+		Route::get('reserva', 'ReservationsController@reserve')->name('reservations.reserve');
+		Route::post('reservar', 'ReservationsController@book')->name('reservations.book');
 	});
 });
-
-
