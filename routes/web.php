@@ -25,6 +25,10 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::delete('deletar/{id}', 'ClientsController@destroy')->name('clients.destroy');
 	});
 	
+	Route::prefix('reservas')->group(function () {
+		Route::get('reserva', 'ReservationController@reserve')->name('reservations.reserve');
+		Route::post('reservar', 'ReservationController@book')->name('reservations.book');
+	});
 });
 
 
