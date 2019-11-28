@@ -48,6 +48,7 @@
                                     <form action="{{ route('clients.destroy', ['id' => $client->id]) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
+                                        <input type="hidden" name="id" value="{{ $client->id }}">
                                         <button type="submit" class="btn btn-xs btn-danger">
                                             <i class="glyphicon glyphicon-trash"></i>
                                         </button>
