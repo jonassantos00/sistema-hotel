@@ -10,11 +10,11 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "illuminate/support": "^6.6",
         "jeroennoten/laravel-adminlte": "^2.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
-        "maatwebsite/excel": "^3.1"
-        "laravel/tinker": "^1.0",
+        "maatwebsite/excel": "^3.1",
         "michael/laravelpagseguro": "dev-master"
     },
     "require-dev": {

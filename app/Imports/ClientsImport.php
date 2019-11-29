@@ -39,10 +39,10 @@ class ClientsImport implements ToCollection, WithValidation, WithEvents
 			$client->forceFill([
 				'id_external' => $row[0],
 				'name' => trim($row[1]),
-				'email' => trim($row[2]),
+				'cpf' => trim($row[2]),
 				'phone' => $row[3],
 				'address' => $row[4],
-				'status' => $row[5]
+				'status' => $row[5] == '1' ? 'ACTIVE' : 'INACTIVE'
 			]);
 			$client->saveOrFail();
 		}
@@ -52,7 +52,7 @@ class ClientsImport implements ToCollection, WithValidation, WithEvents
 	{
 		return [
 			'0' => Rule::unique('clients', 'id_external'),
-			'5' => Rule::in(['ACTIVE', 'INACTIVE']),
+			'5' => Rule::in(['1', '0']),
 		];
 	}
 	

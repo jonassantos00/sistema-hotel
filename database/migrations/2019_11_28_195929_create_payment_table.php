@@ -14,6 +14,7 @@ class CreatePaymentTable extends Migration
 			$table->bigInteger('id_reservation')->unsigned()->comment('ID da reserva');
 			$table->float('paid_value')->comment('Valor pago na reserva  (valor diária * dias)');
 			$table->boolean('is_paid')->default(false)->comment('Informa se foi realizado o pagamento');
+			$table->string('transaction_code', 100)->nullable()->comment('Código da transação');
 			$table->timestampsTz();
 			$table->softDeletesTz();
 			

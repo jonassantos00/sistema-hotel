@@ -29,7 +29,7 @@ class SendEmailReserveCreated
 	{
 		/** @var Client $client */
 		$client = Client::find($event->reservation()->getAttribute('id_client'));
-		$client->notify(new ReservationCreatedNotify());
+//		$client->notify(new ReservationCreatedNotify());
 		
 		Log::info($event->reservation());
 	}

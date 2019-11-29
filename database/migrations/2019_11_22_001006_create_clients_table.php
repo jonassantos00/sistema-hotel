@@ -11,7 +11,8 @@ class CreateClientsTable extends Migration
 		Schema::create('clients', function (Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->string('name', 100)->comment('Nome do cliente');
-			$table->string('email', 150)->unique()->comment('E-mail do cliente');
+			$table->string('cpf', 20)->comment('CPF do cliente');
+			$table->string('email', 150)->default('teste@teste.com')->nullable()->comment('E-mail do cliente');
 			$table->bigInteger('id_external')->unique()->comment('ID externo do cliente, utilizado para identificar o cliente no sistema legado');
 			$table->string('phone', 25)->nullable()->comment('Telefone para contato do cliente');
 			$table->string('address', 200)->nullable()->comment('Endereço do cliente');

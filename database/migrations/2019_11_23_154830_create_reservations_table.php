@@ -18,8 +18,8 @@ class CreateReservationsTable extends Migration
 				->comment('Data de término da reserva do cliente');
 			$table->unsignedBigInteger('id_room')
 				->comment('Identicador do quarto que o cliente reservou');
-			$table->enum('status', ['RESERVED', 'CANCELED', 'EXPIRED'])
-				->default('RESERVED')
+			$table->enum('status', ['RESERVED', 'CANCELED', 'EXPIRED', 'AWAITING_PAYMENT'])
+				->default('AWAITING_PAYMENT')
 				->comment('Status da reserva');
 			$table->timestamps();
 			$table->softDeletesTz();

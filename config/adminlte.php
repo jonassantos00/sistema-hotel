@@ -150,7 +150,7 @@ return [
         ],
         [
             'text' => 'Reservas',
-            'url'  => '#',
+            'url'  => 'reservas/reserva',
             'icon' => 'fas fa-fw fa-users',
         ],
         [

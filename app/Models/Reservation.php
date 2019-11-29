@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
+	public const AWAITING_PAYMENT = 'AWAITING_PAYMENT';
+	public const RESERVED = 'RESERVED';
+	public const CANCELED = 'CANCELED';
+	public const EXPIRED = 'EXPIRED';
+	
 	protected $fillable = ['id_room'];
 	
 	protected $dispatchesEvents = [
@@ -32,8 +37,26 @@ class Reservation extends Model
 		return $start->diffInDays($end) ?? 1;
 	}
 	
+	public function getStatusLabel(string $internalName): string
+	{
+		if ($internalName === Reservation::RESERVED) {
+			return 'Reservado';
+		} elseif ($internalName === Reservation::CANCELED) {
+			return 'Cancelado';
+		} elseif ($internalName === Reservation::AWAITING_PAYMENT) {
+			return 'Aguardando pagamento';
+		} elseif ($internalName === Reservation::EXPIRED) {
+			return 'Expirado';
+		}
+	}
+	
 	public function room()
 	{
 		return $this->hasOne(Room::class, 'id', 'id_room');
+	}
+	
+	public function payment()
+	{
+		return $this->hasOne(Payment::class, 'id_reservation', 'id');
 	}
 }

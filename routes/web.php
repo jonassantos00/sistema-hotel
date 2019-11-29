@@ -8,6 +8,8 @@ Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::any('pagseguro/notification', '\laravel\pagseguro\Platform\Laravel5\NotificationController@notification')->name('pagseguro.notification');
+
 // Rotas autenticadas
 Route::group(['middleware' => ['auth']], function () {
 	Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
@@ -28,5 +30,6 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::prefix('reservas')->group(function () {
 		Route::get('reserva', 'ReservationsController@reserve')->name('reservations.reserve');
 		Route::post('reservar', 'ReservationsController@book')->name('reservations.book');
+		Route::get('status/{reservation}', 'ReservationsController@status')->name('reservations.status');
 	});
 });
