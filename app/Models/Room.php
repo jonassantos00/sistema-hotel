@@ -14,4 +14,6 @@ class Room extends Model
 	public const ACTIVE = 'ACTIVE';
 	public const INACTIVE = 'INACTIVE';
 	public const RESERVED = 'RESERVED';
+	
+	protected $fillable = ['name', 'type', 'status', 'daily_value', 'number'];
 }
