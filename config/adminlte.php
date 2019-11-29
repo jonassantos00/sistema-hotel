@@ -145,7 +145,7 @@ return [
         ],
         [
             'text' => 'Clientes',
-            'url'  => '#',
+            'url'  => 'clientes',
             'icon' => 'fas fa-fw fa-users',
         ],
         [
